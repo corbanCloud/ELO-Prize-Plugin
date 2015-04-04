@@ -1,0 +1,312 @@
+<script>window.isRCoover = true;</script>
+<h2 id="step-counter" data-bind="text: progressInfo().text"></h2>
+<div class="step-progress" data-bind="css: progressInfo().class">
+</div>
+<!-- Intro -->
+<div id="step-one" class="step one" data-bind="visible: formStep() === 1">
+    <fieldset>
+        <div data-bind-config='{"target": "input[type=radio]", "value" : "checked: submissionType"}'>
+            [radio sub-type use_label_element "I am submitting my own work" "I am nominating another person's work"]
+        </div>
+    </fieldset>
+     <!-- Nominator's Info-->
+    <fieldset data-bind="visible: isNomination">
+        <legend><h3>Your Contact Information</h3></legend>
+        <div class="form-element-wrapper">
+            <label>Name (required)</label>
+            <div data-bind-config='{"target": "input", "value" : "value: nominator().name"}'>
+                [text nom-name]
+            </div>
+        </div>
+        <div class="form-element-wrapper">
+            <label>
+                Email (required)
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: nominator().email"}'>
+                [email nom-email]
+            </div>
+        </div>
+        <div class="form-element-wrapper">
+            <label>
+                Phone Number (Include Country Code)
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: nominator().tel"}'>
+                [tel nom-tel]
+            </div>
+        </div>
+        <div class="form-element-wrapper">
+            <label>
+                Address
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: nominator().add1"}'>
+                [text nom-address-1]
+            </div>
+        </div>
+        <div class="form-element-wrapper">
+            <label>
+                Address Line 2
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: nominator().add2"}'>
+                [text nom-address-2]
+            </div>
+        </div>
+        <div class="form-element-wrapper">
+            <label>
+                City
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: nominator().city"}'>
+                [text nom-city]
+            </div>
+        </div>
+        <div class="form-element-wrapper">
+            <label>
+                State
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: nominator().state"}'>
+                [text nom-state]
+            </div>
+        </div>
+        <div class="form-element-wrapper">
+            <label>
+                Country
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: nominator().country"}'>
+                [text nom-state]
+            </div>
+        </div>
+        <div class="form-element-wrapper">
+            <label>
+               Postal Code
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: nominator().zip"}'>
+                [text nom-zip]
+            </div>
+        </div>
+    </fieldset>
+    <!-- Author's Info -->
+    <fieldset>
+        <legend><h3>Author's Contact Information</h3></legend>
+        <div class="form-element-wrapper">
+            <label>Name (required)</label>
+            <div data-bind-config='{"target": "input", "value" : "value: author().name"}'>
+                [text* auth-name]
+            </div>
+        </div>
+        <div class="form-element-wrapper">
+            <label>
+                Email (required)
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: author().email"}'>
+                [email* auth-email]
+            </div>
+        </div>
+        <div class="form-element-wrapper">
+            <label>
+                Phone Number (Include Country Code)
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: author().tel"}'>
+                [tel auth-tel]
+            </div>
+        </div>
+        <div class="form-element-wrapper">
+            <label>
+                Address (required)
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: author().add1"}'>
+                [text* auth-address-1]
+            </div>
+        </div>
+        <div class="form-element-wrapper">
+            <label>
+                Address Line 2
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: author().add2"}'>
+                [text auth-address-2]
+            </div>
+        </div>
+        <div class="form-element-wrapper">
+            <label>
+                City (required)
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: author().city"}'>
+                [text* auth-city]
+            </div>
+        </div>
+        <div class="form-element-wrapper">
+            <label>
+                State Or Province (required)
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: author().state"}'>
+                [text* auth-state]
+            </div>
+        </div>
+        <div class="form-element-wrapper">
+            <label>
+                Country (required)
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: author().country"}'>
+                [text* auth-state]
+            </div>
+        </div>
+        <div class="form-element-wrapper">
+            <label>
+                Postal Code (required)
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: author().zip"}'>
+                [text* auth-zip]
+            </div>
+        </div>
+    </fieldset>
+   
+</div>
+<div id="step-two" class="step two" data-bind="visible: formStep() === 2">
+    <fieldset>
+        <legend><h3>Submitted Work Info</h3></legend>
+        <div class="form-element-wrapper">
+            <label>
+                Title Of Work (Required)
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: work().title"}'>
+                [text work-title]
+            </div>
+        </div>
+        <div class="form-element-wrapper">
+            <label>
+                Date Published (If Applicable)
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: work().pubDate"}'>
+                [date work-pub-date]
+            </div>
+        </div>
+        <div class="form-element-wrapper">
+            <label>
+                Publisher (If Applicable)
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: work().publisher"}'>
+                [text work-publisher]
+            </div>
+        </div>
+        <div class="form-element-wrapper">
+            <label>
+                Other Authors or Contributors (If Applicable)
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: work().contributors"}'>
+                [text work-other-contributors]
+            </div>
+        </div>
+        <div class="form-element-wrapper">
+            <label>
+                Description Of Work (Approximately 250 Words)
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: work().description"}'>
+                [textarea work-description /1600]
+            </div>
+        </div>
+        <div class="form-element-wrapper">
+            <label>
+               [acf field="work_type_prompt"]
+            </label>
+            <div data-bind-config='{"target": "input[type=radio]", "value" : "checked: work().type"}'>
+                [radio work-sub-type use_label_element "upload" "link"]
+            </div>
+        </div>
+        <div class="form-element-wrapper" data-bind="visible: workIsURL">
+            <label>
+                Access URL
+            </label>
+            <div data-bind-config='{"target": "input", "value" : "value: work().url"}'>
+                [text work-url]
+            </div>
+        </div>
+        <div class="form-element-wrapper" data-bind="visible: workIsUpload">
+            <label>
+                File Upload
+            </label>
+            <div class="form-element-wrapper" data-bind-config='{"target": "input", "value" : "value: work().fileURL"}'>
+            	[file work-file]
+			</div>
+        </div>
+    </fieldset>
+</div>
+<div id="step-three" class="step three" data-bind="visible: formStep() === 3">
+    <h3>
+    Your Submission
+    </h3>
+    <div class="form-review-section">
+        <p>
+        Nomination Type:
+        <span data-bind="visible: !isNomination()"> You are Submitting Your Own Work </span>
+        <span data-bind="visible: isNomination"> You are Nominating another's work().
+        </span>
+        </p>
+        <h3>Author's Infomation</h3>
+        <p>Author's Name: <span data-bind="text: author().name"></span></p>
+        <p>Author's Email: <span data-bind="text: author().email"></span></p>
+        <p>Author's Telephone: <span data-bind="text: author().tel"></span></p>
+        <p>Author's Address: <span data-bind="text: author().add1"></span>,<span data-bind="text: author().add2"></span></p>
+        <p>Author's City: <span data-bind="text: author().city"></span></p>
+        <p>Author's State: <span data-bind="text: author().state"></span></p>
+        <p>Author's Zip: <span data-bind="text: author().zip"></span></p>
+    </div>
+    <div class="form-review-section" data-bind="visible: isNomination">
+        <h3>Nominator (Your) Information</h3>
+        <p>Nominator's Name: <span data-bind="text: nominator().name"></span></p>
+        <p>Nominator's Email: <span data-bind="text: nominator().email"></span></p>
+        <p>Nominator's Telephone: <span data-bind="text: nominator().tel"></span></p>
+        <p>Nominator's Address: <span data-bind="text: nominator().add1"></span>,<span data-bind="text: nominator().add2"></span></p>
+        <p>Nominator's City: <span data-bind="text: nominator().city"></span></p>
+        <p>Nominator's State: <span data-bind="text: nominator().state"></span></p>
+        <p>Nominator's Zip:<span data-bind="text: nominator().zip"></span></p>
+    </div>
+    <div class="form-review-section">
+        <h3>Submitted Work</h3>
+        <p>Title Of Work: <span data-bind="text: work().title"></span></p>
+        <p>Date Published: <span data-bind="text: work().pubDate"></span></p>
+        <p>Publisher: <span data-bind="text: work().publisher"></span></p>
+        <p>Other Contributors: <span data-bind="text: work().contributors"></span>
+        </p>
+        <p data-bind="visible: work().IsUpload">
+			For your work()., you have chosen to upload the file: 
+			<pre data-bind="visible: work().isUpload,text: fileName"></pre>
+        </p>
+        <p data-bind="visible: work().IsURL">
+        	For your work()., you provided the access URL: 
+        	<pre data-bind="visible: work().isURL,text: work().url"></pre>
+        </p>
+    </div>
+    <p>
+    	[acf field="post_submission_verification_message"]
+	</p>
+    <div data-bind-config='{"target": "input[type=checkbox]", "value" : "checked: infoVerified"}'>
+        [checkbox info-verified use_label_element "This information is correct"] 
+        <br>
+    </div>
+</div>
+<div id="step-four" class="step four" data-bind="visible: formStep() === 4">
+	<div class="form-element-wrapper">
+        <label>
+            Terms and Conditions
+        </label>
+        <p>
+            [acceptance accept-terms] [acf field="submission_terms_and_conditions"]
+        </p>
+        <div data-bind-config='{"target": "input", "value" : "click: nextStep"}'>
+        [submit]
+        </div>
+        </div>
+    </div>
+</div>
+<div id="step-five" class="step five" data-bind="visible: formStep() === 5">
+	[acf field="thank_you_message"]
+</div>
+<div data-bind="ifnot: userCanProgress || formStep() === 4">
+    <h4 style="text-align: center">
+        Please Fill Out All Fields Before Moving Forward
+    </h4>
+</div>
+<button class="application-button" data-bind="click: previousStep,enable: formStep() > 1">
+<< Previous
+</button>
+<button class="application-button" data-bind="click: nextStep, enable: userCanProgress, visible formStep () < 4">
+Next >>
+</button>

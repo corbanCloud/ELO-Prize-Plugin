@@ -1,0 +1,103 @@
+.column {
+	display: inline-block;
+	vertical-align: top;
+	padding: 0px 18px;
+}
+.column.half:nth-child(odd){
+	
+	width: 49%;
+}
+.column.half:nth-child(even){
+	width: 50%;
+}
+
+/* Progress Header */
+.step-progress{
+	display: block;
+	width: 100%;
+	height: 15px;
+	border: 1px solid #000;
+	position: relative;
+	overflow: hidden;
+}
+.step-progress::after{
+	content: '';
+	display: block;
+	width: 100%;
+	position: absolute;
+	height: 100%;
+	background-color: #a9e9a9;
+	top: 0;
+	left: -100%;
+	
+}
+.step-progress.one-fourth::after{
+	left: -75%;
+	border-right: 1px solid #000;
+}
+.step-progress.half::after{
+	left: -50%;
+	border-right: 1px solid #000;
+}
+.step-progress.three-fourths::after{
+	left: -25%;
+	border-right: 1px solid #000;
+}
+.step-progress.complete::after{
+	left: 0%;
+}
+/* Form Elements */
+.wpcf7-list-item{
+	display: block;
+}
+.wpcf7-submit[type=submit]{
+	background-color: #a9a9a9;
+}
+.wpcf7-submit[type=submit]:hover{
+	background-color: #a9e9a9;
+}
+.wpcf7-submit[type=submit]:disabled{
+	background-color: #e9a9a9;
+	cursor: default;
+}
+
+
+/* Form Controls*/
+
+.application-button{
+	display: inline-block;
+	width: auto;
+	padding: 8px 12px;
+	background-color: #a9a9a9;
+	text-align: center;
+	transition: background-color .15s ease-out;
+}
+.application-button ~ .application-button{
+	float: right;
+	margin-top: -48px;
+}
+.application-button:disabled{
+	cursor: default;
+	background-color: #e9e9e9;;
+}
+.application-button:disabled:hover{
+	background-color: #e9a9a9;
+}
+.application-button:hover{
+	background-color: #a9e9a9;
+}
+legend{
+	font-weight: bold;
+		font-size: 28px;
+}
+label + p {
+	display: none;
+}
+.validationMessage {
+	color: #E83D52;
+	display: block;
+	margin-top: 6px;
+}
+/* Adding () around the error messages the lazy way*/
+.validationMessage::before { content: "(";}
+.validationMessage::after { content: ")";}
